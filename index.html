@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vizok – спільні поїздки</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1216893836538826'); // Замініть на свій Pixel ID
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(270deg, #3a7bd5, #65cafe, #3a7bd5);
+      background-size: 600% 600%;
+      animation: bgGradient 20s ease infinite;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header { padding: 30px; }
+    header img { height: 70px; }
+
+    h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5em; margin-top: 20px; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+
+    .main-text p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+      color: #0B3D91;
+      font-weight: 500;
+    }
+
+    .btn {
+      background: linear-gradient(270deg, #ff6a00, #ffb347, #ff6a00);
+      background-size: 400% 400%;
+      color: #fff;
+      padding: 15px 50px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.3em;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      animation: btnGradient 6s ease infinite;
+    }
+
+    @keyframes btnGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .btn:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(0,0,0,0.4); }
+
+    .car { position: absolute; left: -80px; top: -50px; width: 60px; animation: drive 6s linear infinite; }
+    @keyframes drive { 0% { left: -80px; } 100% { left: 110%; } }
+
+    .icon { position: absolute; width: 40px; opacity: 0.15; animation: float 10s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+
+    .icon1 { top: 15%; left: 10%; animation-delay: 0s; }
+    .icon2 { top: 30%; right: 15%; animation-delay: 2s; }
+    .icon3 { bottom: 20%; left: 20%; animation-delay: 4s; }
+    .icon4 { bottom: 10%; right: 10%; animation-delay: 6s; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="img/logo.png" alt="Vizok Logo">
+  </header>
+
+  <main>
+    <h1>Ласкаво просимо до Vizok!</h1>
+    <div class="main-text">
+      <p>Vizok – платформа для спільних поїздок, де ти можеш легко знайти або запропонувати поїздку. Подорожуй з комфортом та економією разом з нами!</p>
+    </div>
+
+    <div style="position: relative; display: inline-block; margin-top: 30px;">
+      <img src="img/car.png" alt="Машинка" class="car">
+      <button class="btn" id="vizokBtn">Спробувати Vizok</button>
+    </div>
+  </main>
+
+  <!-- Декоративні іконки -->
+  <img src="img/suitcase.png" class="icon icon1" alt="Валіза">
+  <img src="img/car.png" class="icon icon2" alt="Авто">
+  <img src="img/road.png" class="icon icon3" alt="Дорога">
+  <img src="img/suitcase.png" class="icon icon4" alt="Валіза">
+
+  <script>
+    document.getElementById("vizokBtn").addEventListener("click", function() {
+      fbq('track', 'Lead'); // тут спрацює Facebook Pixel
+      window.location.href = "https://t.me/vizok_bot";
+    });
+  </script>
+</body>
+</html>
